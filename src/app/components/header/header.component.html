@@ -1,0 +1,5 @@
+<p-menubar [model]="menuItems">
+    <ng-template pTemplate="end">
+        <i (click)="goToCart()" class="pi pi-fw pi-shopping-cart p-mr-4 p-text-secondary" pBadge style="font-size: 2rem; margin-top: 10px; margin-right: 30px; cursor: pointer;" value="{{itemsInCart}}"></i>
+    </ng-template>
+</p-menubar>

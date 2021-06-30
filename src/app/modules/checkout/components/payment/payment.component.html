@@ -1,0 +1,44 @@
+<div class="pay-page">
+    <h5>Total cost Payable</h5>
+    <p-panel [showHeader]="false">
+        <div>
+            <p>Number of Items : {{cartList.length}}</p>
+            <p>Amount : {{totalAmount | currency:'INR':'symbol'}}</p>
+        </div>
+        <div style="text-align: right;"> 
+            <p-button label="Pay" icon="pi pi-fw pi-wallet" (click)="pay()"></p-button>
+        </div>
+    </p-panel>
+    <h5>Selected products</h5>
+    <p-table #dt [value]="cartList" [rowHover]="true" [rows]="10" [paginator]="true">
+        <ng-template pTemplate="header">
+            <th>
+                <p class="title-style">Product Name</p>
+            </th>
+            <th>
+                <p class="title-style">Product Image</p>
+            </th>
+            <th>
+                <p class="title-style">Price</p>
+            </th>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>
+                    {{product.title}}
+                </td>
+                <td>
+                    <img [alt]="product.title" [src]="product.imageUrl" height="40" style="vertical-align: middle" />
+                </td>
+                <td>
+                    {{product.price | currency:'INR':'symbol'}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="3">No Products found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

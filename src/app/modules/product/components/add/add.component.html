@@ -1,0 +1,53 @@
+<div class="container">
+    <form [formGroup]="addProductForm" style="margin:20px;">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Product Name</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="productName" name="productName" placeholder="Product Name" [ngClass]="{'red-box': addProductForm['controls']['productName'].invalid }"/>
+            </div>
+            <div class="col-md-6">
+                <p>Selling Price</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="sellingPrice" name="sellingPrice" placeholder="Selling Price" [ngClass]="{'red-box': addProductForm['controls']['sellingPrice'].invalid }"/>
+                <p *ngIf="addProductForm['controls']['sellingPrice'].errors && addProductForm['controls']['sellingPrice'].errors.notAnNumber">Please enter only numbers!</p>
+            </div>
+            <div class="col-md-6">
+                <p>MRP Price</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="mrpPrice" name="mrpPrice" placeholder="MRP Price" [ngClass]="{'red-box': addProductForm['controls']['mrpPrice'].invalid }" />
+            </div>
+            <div class="col-md-6">
+                <p>Offer Start Date</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="offerStartDate" name="offerStartDate" placeholder="MM/DD/YYYY" [ngClass]="{'red-box': addProductForm['controls']['offerStartDate'].invalid }" maxlength="10" appMmDdYyyy/>
+            </div>
+            <div class="col-md-6">
+                <p>Offer End Date</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="offerEndDate" name="offerEndDate" placeholder="MM/DD/YYYY" [ngClass]="{'red-box': addProductForm['controls']['offerEndDate'].invalid }" maxlength="10" />
+            </div>
+            <div class="col-md-6">
+                <p>Product Image</p>
+            </div>
+            <div class="col-md-6">
+                <input type="file" formControlName="productImage" name="productImage" [ngClass]="{'red-box': addProductForm['controls']['productImage'].invalid }" />
+            </div>
+            <div class="col-md-6">
+                <p>Description</p>
+            </div>
+            <div class="col-md-6">
+                <textarea formControlName="description" name="description" [ngClass]="{'red-box': addProductForm['controls']['description'].invalid }"></textarea>
+            </div>
+        </div>
+    </form>
+
+    <div class="buy-now">
+        <p-button label="Add Product" icon="pi pi-shopping-cart" (click)="buyNow()"></p-button>
+    </div>
+</div>

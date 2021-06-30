@@ -1,0 +1,30 @@
+<div class="details">
+    <div *ngIf="!productDetails">
+        <h1>No data found!</h1>
+    </div>
+    <div *ngIf="productDetails">
+        <table>
+            <tr>
+                <td class="title">Product Name : </td>
+                <td>{{productDetails.title}}</td>
+            </tr>
+            <tr>
+                <td class="title">Product Image</td>
+                <td><img [src]="productDetails.imageUrl"></td>
+            </tr>
+            <tr>
+                <td class="title">Description</td>
+                <td>{{productDetails.description}}</td>
+            </tr>
+            <tr>
+                <td class="title">Price</td>
+                <td>{{productDetails.price | currency:'INR':'symbol'}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="buy-now">
+        <p-button label="Add To Cart" icon="pi pi-shopping-cart" (click)="buyNow()"></p-button>
+    </div>
+
+</div>

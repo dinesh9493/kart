@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 product-diplay" *ngFor="let product of productList; let ind = index">
+            <p-card header="{{product.title}}" subheader="₹ {{product.price}} (90% Off) BIG BILLION DAY Special" [style]="productCardStyle"
+                styleClass="p-card-shadow">
+                <ng-template pTemplate="header">
+                    <img alt="Card" src="{{product.imageUrl}}" (click)="goToDetailsPage(ind)">
+                </ng-template>
+                <ng-template pTemplate="subtitle">
+                    <p class="mrp-section">
+                        <span>MRP ₹ </span>
+                        <span class="mrp-price">{{product.mrp}}</span>
+                    </p>
+                </ng-template>
+                <p class="description-section">{{product.description}}</p>
+                <ng-template pTemplate="footer">
+                    <span class="add-to-cart-button">
+                        <p-button label="Add To Cart" (click)="addToCart(product)" icon="pi pi-shopping-cart"></p-button>
+                    </span>
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+</div>
